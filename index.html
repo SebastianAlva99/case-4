@@ -15,5 +15,29 @@
             </ul>
         </nav>
     </header>
+
+    <main id="content">
+        <!-- Landing page -->
+        <section id="home" class="view">
+            <h2>Välkomen till Pokemon Explorer</h2>
+            <p>Sök efter din favorit Pokémon för att lära dig mer om dem!</p>
+            <form id="search-form">
+                <input type="text" id="search-input" placeholder="Pokemon name" required>
+            </form>
+        </section>
+
+
+        <!-- Sök result page -->
+        <section id="search-results" class="view hidden">
+            <h2>Sök Results</h2>
+            <div id="results-container"></div>
+        </section>
+    </main>
+
+    <footer>
+        <p>2023 Pokémon Explorer. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
