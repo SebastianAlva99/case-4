@@ -1,20 +1,27 @@
+/* General Styles */
 body {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f0f0f0;
+    background: linear-gradient(135deg, #ffcb05, #3d7dca);
     color: #333;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 header {
-    background-color: #ffcb05;
+    background-color: #2a75bb;
     padding: 1rem;
     text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 header h1 {
     margin: 0;
-    font-size: 2rem;
+    font-size: 2.5rem;
+    color: #ffcb05;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 nav ul {
@@ -22,40 +29,57 @@ nav ul {
     padding: 0;
     display: flex;
     justify-content: center;
+    margin: 1rem 0;
 }
 
-nav ul li a {
-    margin: 0 1rem;;
+nav ul li {
+    margin: 0 1rem;
 }
 
 nav ul li a {
     text-decoration: none;
-    color: #333;
+    color: #ffcb05;
     font-weight: bold;
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #fff;
 }
 
 main {
+    flex: 1;
     padding: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-
+.view {
+    width: 100%;
+    max-width: 800px;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    margin: 10px;
+}
 
 .view.active {
     display: block;
 }
 
 footer {
-    background-color: #333;
+    background-color: #2a75bb;
     color: #fff;
     text-align: center;
     padding: 1rem;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
+    box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
 }
 
-/* Sök form styles */
-
+/* Search Form Styles */
 #search-form {
     display: flex;
     justify-content: center;
@@ -63,54 +87,133 @@ footer {
 }
 
 #search-input {
-    padding: 0.5rem;
-    width: 200px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+    padding: 0.75rem;
+    width: 70%;
+    max-width: 300px;
+    border: 2px solid #ffcb05;
+    border-radius: 8px;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+#search-input:focus {
+    border-color: #3d7dca;
 }
 
 button {
-    padding: 0.5rem 1rem;
+    padding: 0.75rem 1.5rem;
     background-color: #ffcb05;
     border: none;
-    border-radius: 4px;
+    border-radius: 8px;
+    color: #2a75bb;
+    font-size: 1rem;
+    font-weight: bold;
     cursor: pointer;
     margin-left: 0.5rem;
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 button:hover {
     background-color: #e6b800;
+    transform: scale(1.05);
 }
 
+button:active {
+    transform: scale(0.95);
+}
+
+/* Search Results Styles */
 #results-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 1rem;
+    gap: 1.5rem;
     margin-top: 2rem;
 }
 
 .pokemon-card {
     background-color: #fff;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    padding: 1rem;
-    width: 150px;
+    border: 2px solid #ffcb05;
+    border-radius: 12px;
+    padding: 1.5rem;
+    width: 180px;
     text-align: center;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.pokemon-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
 .pokemon-card img {
-    width: 100px;
-    height: 100px;
+    width: 120px;
+    height: 120px;
+    margin-bottom: 1rem;
 }
 
 .pokemon-card h3 {
     margin: 0.5rem 0;
-    font-size: 1.2rem;
+    font-size: 1.4rem;
+    color: #2a75bb;
+    text-transform: capitalize;
 }
 
 .pokemon-card p {
     margin: 0.2rem 0;
     font-size: 0.9rem;
+    color: #555;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2rem;
+    }
+
+    nav ul li a {
+        font-size: 1rem;
+    }
+
+    .view {
+        padding: 1rem;
+    }
+
+    #search-input {
+        width: 100%;
+    }
+
+    button {
+        width: 100%;
+        margin-left: 0;
+        margin-top: 0.5rem;
+    }
+
+    .pokemon-card {
+        width: 140px;
+        padding: 1rem;
+    }
+
+    .pokemon-card img {
+        width: 100px;
+        height: 100px;
+    }
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 1.8rem;
+    }
+
+    .pokemon-card {
+        width: 120px;
+        padding: 0.75rem;
+    }
+
+    .pokemon-card img {
+        width: 80px;
+        height: 80px;
+    }
 }
