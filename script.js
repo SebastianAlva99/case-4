@@ -6,10 +6,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const searchForm = document.getElementById('search-form');
     const searchInput = document.getElementById('search-input');
 
-    // Show home view by default
+
     showView(homeView);
 
-    // Handle navigation
+
     document.querySelectorAll('.nav-link').forEach(link => {
         link.addEventListener('click', (e) => {
             e.preventDefault();
@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Handle search form submission
+
     searchForm.addEventListener('submit', async (e) => {
         e.preventDefault();
         const query = searchInput.value.trim().toLowerCase();
@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Function to fetch Pokémon data
+
     async function fetchPokemon(query) {
         const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${query}`);
         if (!response.ok) {
@@ -44,7 +44,6 @@ document.addEventListener('DOMContentLoaded', () => {
         return response.json();
     }
 
-    // Function to display Pokémon data
     function displayPokemon(pokemon) {
         resultsContainer.innerHTML = `
             <div class="pokemon-card">
@@ -56,7 +55,6 @@ document.addEventListener('DOMContentLoaded', () => {
         `;
     }
 
-    // Function to show a specific view
     function showView(view) {
         document.querySelectorAll('.view').forEach(v => v.classList.add('hidden'));
         view.classList.remove('hidden');
