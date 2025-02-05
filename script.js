@@ -51,6 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 <h3>${pokemon.name}</h3>
                 <p>Height: ${pokemon.height / 10}m</p>
                 <p>Weight: ${pokemon.weight / 10}kg</p>
+                <p>ID: ${pokemon.id}</p>
             </div>
         `;
     }
